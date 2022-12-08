@@ -21,12 +21,6 @@ public class BookService {
         return repository.saveAll(toCreate);
     }
 
-    /*
-    TODO-2-i: Why the createBooks and the updateBooks use the same repository method saveAll ?
-    TODO-2-ii : Only ID, title and author should be provided during the update.
-    Therefore, the pageNumber and the release date exists also in the Book model.
-    A solution to update a book without the pageNumber and the releaseDate ?
-     */
     public List<Book> updateBooks(List<Book> toUpdate) {
         return repository.saveAll(toUpdate);
     }
@@ -41,7 +35,7 @@ public class BookService {
 
         T is the type of the value, for example : here the class type is Book
          */
-        Optional<Book> optional = repository.findById(String.valueOf(bookId));
+        Optional<Book> optional = repository.findById(bookId);
         if (optional.isPresent()) {
             repository.delete(optional.get());
             return optional.get();
@@ -56,5 +50,9 @@ public class BookService {
          */
             throw new RuntimeException("Book." + bookId + " not found");
         }
+    }
+
+    public Book getBookById(int id) {
+        return repository.getById(id);
     }
 }
