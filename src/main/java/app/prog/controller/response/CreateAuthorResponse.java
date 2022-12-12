@@ -9,9 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class AuthorResponse {
-    private int id;
+public class CreateAuthorResponse {
     private String name;
     private String particularity;
-    public boolean hasParticularity;
 }
