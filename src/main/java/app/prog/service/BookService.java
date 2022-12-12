@@ -1,6 +1,7 @@
 package app.prog.service;
 
 import app.prog.model.Book;
+import app.prog.model.exception.NoSuchElementFoundException;
 import app.prog.repository.BookRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -38,7 +39,7 @@ public class BookService {
             repository.delete(optional.get());
             return ResponseEntity.ok().body(optional.get());
         } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Book.id=" + bookId + " not found");
+            throw new NoSuchElementFoundException("Book.id=" + bookId + " not found");
         }
     }
 }
