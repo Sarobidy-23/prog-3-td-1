@@ -1,6 +1,7 @@
 package app.prog.service;
 
 import app.prog.model.BookEntity;
+import app.prog.model.exception.NoSuchElementException;
 import app.prog.repository.BookRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -48,7 +49,7 @@ public class BookService {
         Link 1 : https://www.baeldung.com/spring-response-entity
         Link 2 : https://www.baeldung.com/exception-handling-for-rest-with-spring
          */
-            throw new RuntimeException("BookEntity." + BookEntityId + " not found");
+            throw new NoSuchElementException("BookEntity." + BookEntityId + " not found");
         }
     }
 }
