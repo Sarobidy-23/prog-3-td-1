@@ -1,3 +1,3 @@
 alter table book
-    add column
-        author_id integer references author(id);
+    add
+        author_id int references author(id);
